@@ -28,6 +28,15 @@ export function getEntry(target, key) {
   return entry;
 }
 
+export function getEntries(target) {
+  const result = [];
+  const targetMap = entries.get(target);
+  if (targetMap) {
+    targetMap.forEach((entry) => { result.push(entry); });
+  }
+  return result;
+}
+
 function calculateChecksum(entry) {
   let checksum = entry.state;
   if (entry.deps) {
